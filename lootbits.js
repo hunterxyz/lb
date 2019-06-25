@@ -1,4 +1,4 @@
-var parseResult = async function parseResult(result) {
+var parseResult = async function parseResult(diamonds, result) {
     let textResult = await result.text();
     let arrayResult = textResult.split('::');
 
@@ -40,7 +40,7 @@ var openBoxes = function (diamonds, totBTC = 0) {
 
         setTimeout(async function () {
 
-            var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult);
+            var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult.bind(null, diamonds));
 
             openBoxes(diamonds, totBTC + result);
 
