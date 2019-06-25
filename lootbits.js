@@ -1,9 +1,5 @@
 var openBoxes = function(diamonds, totBTC) {
 
-    var regexp = /'porto.php\?uhash=(\d*)/gm;
-    var pageText = $(document).text();
-    var userHash = regexp.exec(pageText)[1];
-
     var options = {
         "credentials":    "include",
         "headers":        {
@@ -22,8 +18,12 @@ var openBoxes = function(diamonds, totBTC) {
     totBTC = totBTC || 0;
 
     if (diamonds === 0) {
-        console.log(`Totale BTC guadagnati: ${totBTC}`);
+        console.log(`Totale BTC guadagnati: ${totBTC.toFixed(8)}`);
     } else {
+        var regexp = /'porto.php\?uhash=(\d*)/gm;
+        var pageText = $(document).text();
+        var userHash = regexp.exec(pageText)[1];
+
         setTimeout(async function() {
             var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(
                 async function(result) {
@@ -35,7 +35,7 @@ var openBoxes = function(diamonds, totBTC) {
                     var total = parseFloat(arrayResult[4]);
                     var percentage = parseInt((100 * total) / 0.049);
 
-                    console.log(`Hai consumato un diamantino! Ne mancano ${diamonds}`, `Percentuale: ${percentage}%`);
+                    console.log(`Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%`);
 
                     return parseFloat(arrayResult[2]);
                 }
