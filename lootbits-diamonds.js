@@ -1,4 +1,4 @@
-var getDiamonds = async function getDiamonds() {
+var runGetDiamonds = async function getDiamonds() {
 
     var result = await fetch('https://lootbits.io/dashboard.php');
 
@@ -21,5 +21,11 @@ var getDiamonds = async function getDiamonds() {
     }
 
 };
-// getDiamonds();
-// setInterval(getDiamonds, 5 * 60 * 1000);
+
+var getDiamonds = async function getDiamonds() {
+
+    await runGetDiamonds();
+
+    return setInterval(runGetDiamonds, 5 * 60 * 1000);
+
+};
