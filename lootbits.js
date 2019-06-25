@@ -13,6 +13,9 @@ var parseResult = async function parseResult(diamonds, result) {
 };
 
 var openBoxes = function (diamonds, totBTC = 0) {
+    var regexp = /'porto.php\?uhash=(\d*)/gm;
+    var pageText = $(document).text();
+    var userHash = regexp.exec(pageText)[1];
 
     var options = {
         "credentials":    "include",
@@ -32,10 +35,6 @@ var openBoxes = function (diamonds, totBTC = 0) {
     if (diamonds === 0) {
         console.log(`Totale BTC guadagnati: ${totBTC.toFixed(8)}`);
     } else {
-        var regexp = /'porto.php\?uhash=(\d*)/gm;
-        var pageText = $(document).text();
-        var userHash = regexp.exec(pageText)[1];
-
         setTimeout(async function () {
 
             var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult.bind(null, diamonds--));
