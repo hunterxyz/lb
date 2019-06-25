@@ -21,5 +21,5 @@ var getDiamonds = async function getDiamonds() {
     }
 
 };
-
-setInterval(getDiamonds, 5 * 60 * 1000);
+// getDiamonds();
+// setInterval(getDiamonds, 5 * 60 * 1000);
