@@ -42,4 +42,4 @@ var openBoxes = function(diamonds, totBTC) {
     }
 };
 
-openBoxes(5);
+// openBoxes(5);
