@@ -7,7 +7,7 @@ var parseResult = async function parseResult(diamonds, result) {
     let nextPercentage = percentage + 1;
     let remainingBTC = (0.049 * nextPercentage / 100) - total;
 
-    console.log(`Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%\n Mancano: ${remainingBTC.toFixed(8)}BTC al ${nextPercentage}%`);
+    console.log(`Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%\nMancano: ${remainingBTC.toFixed(8)}BTC al ${nextPercentage}%`);
 
     return parseFloat(arrayResult[2]);
 };
