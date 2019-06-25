@@ -31,7 +31,11 @@ var openBoxes = function(diamonds, totBTC) {
                     var arrayResult = textResult.split('::');
 
                     diamonds--;
-                    console.log(`Hai consumato un diamantino! Ne mancano ${diamonds}`);
+
+                    var total = parseFloat(arrayResult[4]);
+                    var percentage = parseInt((100 * total) / 0.049);
+
+                    console.log(`Hai consumato un diamantino! Ne mancano ${diamonds}`, `Percentuale: ${percentage}%`);
 
                     return parseFloat(arrayResult[2]);
                 }
@@ -41,5 +45,3 @@ var openBoxes = function(diamonds, totBTC) {
         }, 2000);
     }
 };
-
-// openBoxes(5);
