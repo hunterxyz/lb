@@ -27,15 +27,17 @@ var openBoxes = function(diamonds, totBTC) {
         setTimeout(async function() {
             var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(
                 async function(result) {
-                    var textResult = await result.text();
-                    var arrayResult = textResult.split('::');
+                    let textResult = await result.text();
+                    let arrayResult = textResult.split('::');
 
                     diamonds--;
 
-                    var total = parseFloat(arrayResult[4]);
-                    var percentage = parseInt((100 * total) / 0.049);
+                    let total = parseFloat(arrayResult[4]);
+                    let percentage = parseInt((100 * total) / 0.049);
+                    let nextPercentage = percentage + 1;
+                    let remainingBTC = (0.049 * nextPercentage / 100) - total;
 
-                    console.log(`Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%`);
+                    console.log(`Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%\n Mancano: ${remainingBTC.toFixed(8)}BTC al ${nextPercentage}%`);
 
                     return parseFloat(arrayResult[2]);
                 }
