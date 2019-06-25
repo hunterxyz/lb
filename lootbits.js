@@ -2,8 +2,6 @@ var parseResult = async function parseResult(diamonds, result) {
     let textResult = await result.text();
     let arrayResult = textResult.split('::');
 
-    diamonds--;
-
     let total = parseFloat(arrayResult[4]);
     let percentage = parseInt((100 * total) / 0.049);
     let nextPercentage = percentage + 1;
@@ -40,7 +38,7 @@ var openBoxes = function (diamonds, totBTC = 0) {
 
         setTimeout(async function () {
 
-            var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult.bind(null, diamonds));
+            var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult.bind(null, diamonds--));
 
             openBoxes(diamonds, totBTC + result);
 
