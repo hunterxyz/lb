@@ -18,8 +18,11 @@ async function addScript(page, id) {
 
     };
     await fetch('https://raw.githubusercontent.com/hunterxyz/lb/master/' + page).then(appendInPage);
+}
+
+async function addScripts() {
+    await addScript('lootbits.js?v=' + new Date().getTime(), 'open-boxes');
+    await addScript('lootbits-diamonds.js?v=' + new Date().getTime(), 'get-diamonds');
 };
 
-await addScript('lootbits.js?v=' + new Date().getTime(), 'open-boxes');
-await addScript('lootbits-diamonds.js?v=' + new Date().getTime(), 'get-diamonds');
-
+addScripts();

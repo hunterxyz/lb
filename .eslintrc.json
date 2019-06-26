@@ -1,0 +1,164 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "env": {
+        "browser": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "rules": {
+        "func-names": "warn",
+        "no-console": "error",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1,
+                "MemberExpression": 1,
+                "FunctionDeclaration": {
+                    "parameters": "first"
+                },
+                "FunctionExpression": {
+                    "parameters": "first"
+                },
+                "CallExpression": {
+                    "arguments": "first"
+                },
+                "ArrayExpression": 1,
+                "ObjectExpression": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "block-scoped-var": "error",
+        "complexity": "error",
+        "curly": [
+            "error",
+            "all"
+        ],
+        "dot-location": [
+            "error",
+            "property"
+        ],
+        "dot-notation": "error",
+        "eqeqeq": "error",
+        "no-lone-blocks": "error",
+        "no-return-assign": "error",
+        "no-return-await": "error",
+        "no-useless-return": "error",
+        "no-useless-concat": "error",
+        "no-use-before-define": "error",
+        "no-sync": "warn",
+        "array-bracket-spacing": "error",
+        "block-spacing": [
+            "error",
+            "always"
+        ],
+        "brace-style": [
+            "error",
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
+        "comma-dangle": "error",
+        "comma-spacing": "error",
+        "comma-style": "error",
+        "computed-property-spacing": "error",
+        "eol-last": "error",
+        "func-call-spacing": "error",
+        "func-name-matching": "error",
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": false,
+                "afterColon": true,
+                "align": "value"
+            }
+        ],
+        "keyword-spacing": "error",
+        "max-depth": "error",
+        "max-len": [
+            "warn",
+            {
+                "code": 160
+            }
+        ],
+        "max-nested-callbacks": "error",
+        "max-params": "warn",
+        "newline-before-return": "error",
+        "no-bitwise": "error",
+        "no-lonely-if": "error",
+        "no-trailing-spaces": "error",
+        "no-whitespace-before-property": "error",
+        "object-curly-spacing": "error",
+        "one-var": [
+            "error",
+            "never"
+        ],
+        "padded-blocks": [
+            "error",
+            "always",
+            {
+               "allowSingleLineBlocks": true
+            }
+        ],
+        "quote-props": [
+            "error",
+            "as-needed"
+        ],
+        "space-before-blocks": "error",
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "space-in-parens": "error",
+        "space-infix-ops": "error",
+        "space-unary-ops": "error",
+        "arrow-spacing": "error",
+        "generator-star-spacing": "error",
+        "no-useless-computed-key": "error"
+    },
+    "globals": {
+        "App": true,
+        "AppConfig": true,
+        "Promise": true,
+        "$": true,
+        "_": true,
+        "XDate": true,
+        "moment": true,
+        "momentDurationFormatSetup": true,
+        "google": true,
+        "MarkerClusterer": true,
+        "GoogleMapsLoader": true,
+        "$zopim": true,
+        "Ember": true,
+        "Em": true,
+        "io": true,
+        "figlet": true,
+        "Handlebars": true,
+        "Persist": true,
+        "Clipboard": true,
+        "PolynomialCalculator": true,
+        "detectZoom": true,
+        "dataLayer": true,
+        "process": true,
+        "require": true,
+        "__dirname": true,
+        "module": true,
+        "costcalculator": true,
+        "QRCode": true
+    }
+}
