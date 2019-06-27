@@ -23,6 +23,6 @@ async function addScript(page, id) {
 async function addScripts() {
     await addScript('lootbits.js?v=' + new Date().getTime(), 'open-boxes');
     await addScript('lootbits-diamonds.js?v=' + new Date().getTime(), 'get-diamonds');
-};
+}
 
 addScripts();
