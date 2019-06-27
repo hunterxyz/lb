@@ -7,13 +7,13 @@ var parseResult = async function parseResult(diamonds, result) {
     let percentage = parseInt((100 * total) / 0.049);
     let nextPercentage = percentage + 1;
     let remainingBTC = (0.049 * nextPercentage / 100) - total;
-    let firstLine = `Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}`;
+    let firstLine = `Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%`;
 
     if (gainedBTC > 0){
         firstLine = `${firstLine}, Guadagnati ${gainedBTC} BTC`;
     }
 
-    console.log(`${firstLine}%\nMancano: ${remainingBTC.toFixed(8)} BTC al ${nextPercentage}%`);
+    console.log(`${firstLine}\nMancano: ${remainingBTC.toFixed(8)} BTC al ${nextPercentage}%`);
 
     return gainedBTC;
 };
