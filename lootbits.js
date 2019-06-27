@@ -2,14 +2,20 @@ var parseResult = async function parseResult(diamonds, result) {
     let textResult = await result.text();
     let arrayResult = textResult.split('::');
 
+    let gainedBTC = parseFloat(arrayResult[2]);
     let total = parseFloat(arrayResult[4]);
     let percentage = parseInt((100 * total) / 0.049);
     let nextPercentage = percentage + 1;
     let remainingBTC = (0.049 * nextPercentage / 100) - total;
+    let firstLine = `Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}`;
 
-    console.log(`Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%\nMancano: ${remainingBTC.toFixed(8)} BTC al ${nextPercentage}%`);
+    if (gainedBTC > 0){
+        firstLine = `${firstLine}, Guadagnati ${gainedBTC} BTC`;
+    }
 
-    return parseFloat(arrayResult[2]);
+    console.log(`${firstLine}%\nMancano: ${remainingBTC.toFixed(8)} BTC al ${nextPercentage}%`);
+
+    return gainedBTC;
 };
 
 var getOptions = function getOptions(userHash) {
