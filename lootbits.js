@@ -9,8 +9,8 @@ var parseResult = async function parseResult(diamonds, result) {
     let remainingBTC = (0.049 * nextPercentage / 100) - total;
     let firstLine = `Hai consumato un diamante! Ne mancano ${diamonds}, Percentuale: ${percentage}%`;
 
-    if (gainedBTC > 0){
-        firstLine = `${firstLine}, Guadagnati ${gainedBTC} BTC`;
+    if (gainedBTC > 0) {
+        firstLine = `${firstLine}, Guadagnati ${gainedBTC.toFixed(8)} BTC`;
     }
 
     console.log(`${firstLine}\nMancano: ${remainingBTC.toFixed(8)} BTC al ${nextPercentage}%`);
@@ -35,8 +35,15 @@ var getOptions = function getOptions(userHash) {
     };
 };
 
-var openBoxes = function openBoxes(diamonds, totBTC = 0) {
+var openBoxes = function openBoxes(diamonds, totBTC) {
 
+    if (isNaN(totBTC)) {
+        let diamondsMillisecons = diamonds * 2000;
+        let eta = new Date(new Date().getTime() + diamondsMillisecons);
+        totBTC = 0;
+
+        console.log('terminerà alle: ' + eta.toLocaleString());
+    }
 
     if (diamonds === 0) {
         console.log(`Totale BTC guadagnati: ${totBTC.toFixed(8)}`);
