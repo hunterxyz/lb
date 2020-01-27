@@ -55,7 +55,14 @@ var openBoxes = function openBoxes(diamonds, totBTC) {
 
         setTimeout(async function () {
             diamonds--;
-            var result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult.bind(null, diamonds));
+            var result;
+
+            try {
+                result = await fetch(`https://lootbits.io/porto.php?uhash=${userHash}`, options).then(parseResult.bind(null, diamonds));
+            } catch (error) {
+                console.log(error);
+                result = 0;
+            }
 
             openBoxes(diamonds, totBTC + result);
 
