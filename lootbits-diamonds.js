@@ -8,8 +8,13 @@ var getHref = function getHref(buttonId, page) {
 };
 
 var getDiamonds = async function getDiamonds() {
-
-    let result = await fetch('https://lootbits.io/dashboard.php');
+    let result;
+    try {
+        result = await fetch('https://lootbits.io/dashboard.php');
+    } catch (error) {
+        console.log(error);
+        return setTimeout(getDiamonds, 5 * 1000);
+    }
 
     let page = await result.text();
     let buttonId = 'claimbtn';
